@@ -4,6 +4,7 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
 }
 
 function cartItemTemplate(item) {
