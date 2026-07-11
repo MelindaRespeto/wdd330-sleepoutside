@@ -7,6 +7,13 @@ function renderCartContents() {
 
   const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
   document.querySelector("#cart-total").textContent = total.toFixed(2);
+  const totalBox = document.querySelector(".cart-total");
+
+  if (cartItems.length === 0) {
+    totalBox.style.display = "none";
+  } else {
+    totalBox.style.display = "block";
+  }
 }
 
 function cartItemTemplate(item) {
